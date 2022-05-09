@@ -6,7 +6,7 @@ Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Bailey
 
 ## O QUE TEM DISPONÍVEL:
 
-Apenas as funcionalidades pro meu uso próprio, então não tem todos os recursos disponíveis da API di Baileys.
+Apenas as funcionalidades pro meu uso próprio, então não tem todos os recursos disponíveis da API do Baileys.
 
 
 ## ESTÁ EM FASE DE DESENVOLVIMENTO:
