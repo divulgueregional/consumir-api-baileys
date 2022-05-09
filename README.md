@@ -2,7 +2,7 @@
 
 ## Introdução
 
-Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Baileys que é comercializada nos grupos. Aqui não está disponível a API apenas a utilização da mesma.
+Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Baileys que é comercializada nos grupos. Aqui não está disponível a API apenas a utilização dela.
 
 ## O QUE TEM DISPONÍVEL:
 
