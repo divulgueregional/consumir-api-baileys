@@ -1,9 +1,11 @@
 {
     "name": "divulgueregional/consumir-api-baileys",
     "description": "Consumir recursos da API do Baileys",
+    "license": "mit",
+    "type": "library",
     "autoload": {
         "psr-4": {
-            "User\\ConsumirApiBaileys\\": "src/"
+            "Divulgueregional\\ConsumirApiBaileys\\": "src/"
         }
     },
     "authors": [
