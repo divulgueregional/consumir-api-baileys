@@ -1,0 +1,16 @@
+{
+    "name": "user/consumir-api-baileys",
+    "description": "Consumir recursos da API do Baileys",
+    "autoload": {
+        "psr-4": {
+            "User\\ConsumirApiBaileys\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "divulgueregional",
+            "email": "roseno@divulgueregional.com.br"
+        }
+    ],
+    "require": {}
+}
