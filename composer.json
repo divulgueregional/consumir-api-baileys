@@ -1,5 +1,5 @@
 {
-    "name": "user/consumir-api-baileys",
+    "name": "divulgueregional/consumir-api-baileys",
     "description": "Consumir recursos da API do Baileys",
     "autoload": {
         "psr-4": {
@@ -8,9 +8,12 @@
     },
     "authors": [
         {
-            "name": "divulgueregional",
+            "name": "Roseno Matos",
             "email": "roseno@divulgueregional.com.br"
         }
     ],
-    "require": {}
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
 }
