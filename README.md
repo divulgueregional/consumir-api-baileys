@@ -5,10 +5,9 @@
 Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Baileys que é comercializada nos grupos. Aqui não está disponível a API apenas a utilização dela.
 
 ## ESTÁ EM FASE DE DESENVOLVIMENTO:
-ainda não está pronta, fase em teste apenas
+Ainda não está pronta, fase em desenvolvimento apenas. Logo estará disponível para instalação.
 
 ## O QUE VOCÊ PODE UTILIZAR:
-
 <b>InstanceController</b>
 - <b>init:</b> criar instância
 - <b>list:</b> listar instâncias criadas
@@ -28,15 +27,14 @@ ainda não está pronta, fase em teste apenas
 - <b>updateUrl:</b> (falta fazer)
 - <b>enableMessage:</b> (falta fazer)
 
-
 <b>SendMessageController</b>
 - <b>text:</b> enviar mensagem de texto
+- <b>document:</b> (falta fazer)
 - <b>textToMany:</b> (falta fazer)
 - <b>mediaUrl:</b> (falta fazer)
 - <b>image:</b> (falta fazer)
 - <b>video:</b> (falta fazer)
 - <b>audio:</b> (falta fazer)
-- <b>document:</b> (falta fazer)
 - <b>location:</b> (falta fazer)
 - <b>templateMessage:</b> (falta fazer)
 - <b>templateMessageWithMedia:</b> (falta fazer)
