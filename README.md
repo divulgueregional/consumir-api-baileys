@@ -18,6 +18,7 @@ ainda não está pronta, fase em teste apenas
 - <b>obterMessages:</b> recebe mensagem de um determinado chat
 - <b>obterContacts:</b> lista de contatos
 - <b>isOnWhatsApp</b>: verifica se o número está cadastrado no whatsapp
+- <b>qrcode:</b> gera url para ler o qrcode
 
 - <b>downloadMediaMessage:</b> (falta fazer)
 
