@@ -15,6 +15,11 @@ InstanceController
 - list: listar instâncias criadas
 - instance_key: dados de uma instância
 - obterChats: listar chats
+- obterMessages: recebe mensagem de um determinado chat
+- obterContacts: lista de contatos
+- isOnWhatsApp: verifica se o número está cadastrado no whatsapp
+
+- downloadMediaMessage (falta fazer)
 
 SendMessageController
 
