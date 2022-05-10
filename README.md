@@ -20,6 +20,9 @@ ainda não está pronta, fase em teste apenas
 - <b>isOnWhatsApp</b>: verifica se o número está cadastrado no whatsapp
 - <b>qrcode:</b> gera url para ler o qrcode
 
+- <b>qrcodeBase64:</b> (falta fazer)
+- <b>logout:</b> (falta fazer)
+- <b>delete:</b> (falta fazer)
 - <b>downloadMediaMessage:</b> (falta fazer)
 
 <b>SendMessageController</b>
