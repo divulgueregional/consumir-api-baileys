@@ -10,7 +10,6 @@ ainda não está pronta, fase em teste apenas
 ## O QUE VOCÊ PODE UTILIZAR:
 
 <b>InstanceController</b>
-
 - <b>init:</b> criar instância
 - <b>list:</b> listar instâncias criadas
 - <b>instance_key:</b> dados de uma instância
@@ -19,7 +18,6 @@ ainda não está pronta, fase em teste apenas
 - <b>obterContacts:</b> lista de contatos
 - <b>isOnWhatsApp</b>: verifica se o número está cadastrado no whatsapp
 - <b>qrcode:</b> gera url para ler o qrcode
-
 - <b>qrcodeBase64:</b> (falta fazer)
 - <b>logout:</b> (falta fazer)
 - <b>delete:</b> (falta fazer)
