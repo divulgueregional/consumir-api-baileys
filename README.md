@@ -9,7 +9,7 @@ ainda não está pronta, fase em teste apenas
 
 ## O QUE VOCÊ PODE UTILIZAR:
 
-InstanceController
+<b>InstanceController</b>
 
 - init: criar instância
 - list: listar instâncias criadas
@@ -21,7 +21,7 @@ InstanceController
 
 - downloadMediaMessage (falta fazer)
 
-SendMessageController
+<b>SendMessageController</b>
 
 - text: enviar mensagem de texto
 
