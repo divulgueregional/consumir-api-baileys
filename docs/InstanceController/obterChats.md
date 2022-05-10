@@ -7,7 +7,7 @@ Lista os chats.
     require_once '../../../vendor/autoload.php';
     use Divulgueregional\ConsumirApiBaileys\Baileys;
 
-    $instance = 'rozael'; //nome da instância
+    $instance = ''; //nome da instância
     try {
         $Baileys = new Baileys($config);
 
