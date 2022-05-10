@@ -1,7 +1,7 @@
-# ENVIAR TEXTO OU MENSAGEM - BAILEYS
+#  LISTAR AS INSTÂNCIAS CRIADAS- BAILEYS
 
 ## Introdução
-Envia um texto simples para um determinado número.
+Lista todas as instâncias criadas.
 
 ```php
     require_once '../../../vendor/autoload.php';
@@ -13,19 +13,13 @@ Envia um texto simples para um determinado número.
         'porta' => 8000, //porta de instalação do bailey
     ];
 
-    $number = "55+DDD+Number";//ddd acima de 30 sem o 9
-    $text = "oi";
-    $filters["messageData"] = [
-        "to" => "{$number}@s.whatsapp.net",
-        "text" => "{$text}"
-    ];
-    $instance = ''; //nome da instância criada ao ler o qrcode
+    $instance = 'drsystema';
     try {
         $Baileys = new Baileys($config);
 
         echo "<pre>";
-        $respText = $Baileys->text($filters, $instance);
-        print_r($respText);
+        $list = $Baileys->list();
+        print_r($list);
     } catch (\Exception $e) {
         echo $e->getMessage();
     }
