@@ -11,18 +11,18 @@ ainda não está pronta, fase em teste apenas
 
 <b>InstanceController</b>
 
-- init: criar instância
-- list: listar instâncias criadas
-- instance_key: dados de uma instância
-- obterChats: listar chats
-- obterMessages: recebe mensagem de um determinado chat
-- obterContacts: lista de contatos
-- isOnWhatsApp: verifica se o número está cadastrado no whatsapp
+- <b>init:</b> criar instância
+- <b>list:</b> listar instâncias criadas
+- <b>instance_key:</b> dados de uma instância
+- <b>obterChats:</b> listar chats
+- <b>obterMessages:</b> recebe mensagem de um determinado chat
+- <b>obterContacts:</b> lista de contatos
+- <b>isOnWhatsApp</b>: verifica se o número está cadastrado no whatsapp
 
-- downloadMediaMessage (falta fazer)
+- <b>downloadMediaMessage:</b> (falta fazer)
 
 <b>SendMessageController</b>
 
-- text: enviar mensagem de texto
+- <b>text:</b> enviar mensagem de texto
 
 
