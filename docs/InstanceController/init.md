@@ -1,7 +1,7 @@
-#  LIST - BAILEYS
+#  INIT - BAILEYS
 
 ## Descrição
-Lista todas as instâncias criadas.
+Cria uma intância.
 
 ```php
     require_once '../../../vendor/autoload.php';
@@ -13,12 +13,16 @@ Lista todas as instâncias criadas.
         'porta' => 8000, //porta de instalação do bailey
     ];
 
+    $filters = [
+        "instance_key" => "teste2", //nome da instance - uma palavra
+        "disableWebhook" => "false" //false ou true
+    ];
     try {
         $Baileys = new Baileys($config);
 
         echo "<pre>";
-        $list = $Baileys->list();
-        print_r($list);
+        $init = $Baileys->init($filters);
+        print_r($init);
     } catch (\Exception $e) {
         echo $e->getMessage();
     }

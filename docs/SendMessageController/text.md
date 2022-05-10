@@ -1,6 +1,6 @@
-# ENVIAR TEXTO OU MENSAGEM - BAILEYS
+# TEXT - BAILEYS
 
-## Introdução
+## Descrição
 Envia um texto simples para um determinado número.
 
 ```php
