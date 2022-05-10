@@ -14,7 +14,7 @@ Cria uma intância.
     ];
 
     $filters = [
-        "instance_key" => "teste2", //nome da instance - uma palavra
+        "instance_key" => "teste", //nome da instance - uma palavra
         "disableWebhook" => "false" //false ou true
     ];
     try {
