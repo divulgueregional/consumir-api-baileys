@@ -25,8 +25,37 @@ ainda não está pronta, fase em teste apenas
 - <b>delete:</b> (falta fazer)
 - <b>downloadMediaMessage:</b> (falta fazer)
 
+<b>WebhookController</b>
+- <b>webhook:</b> (falta fazer)
+- <b>updateUrl:</b> (falta fazer)
+- <b>enableMessage:</b> (falta fazer)
+
+
 <b>SendMessageController</b>
-
 - <b>text:</b> enviar mensagem de texto
+- <b>textToMany:</b> (falta fazer)
+- <b>mediaUrl:</b> (falta fazer)
+- <b>image:</b> (falta fazer)
+- <b>video:</b> (falta fazer)
+- <b>audio:</b> (falta fazer)
+- <b>document:</b> (falta fazer)
+- <b>location:</b> (falta fazer)
+- <b>templateMessage:</b> (falta fazer)
+- <b>templateMessageWithMedia:</b> (falta fazer)
+- <b>contactMessage:</b> (falta fazer)
+- <b>listMessage:</b> (falta fazer)
 
-
+<b>GroupController</b>
+- <b>list:</b> (falta fazer)
+- <b>adminGroups:</b> (falta fazer)
+- <b>adminGroupsWithParticipants:</b> (falta fazer)
+- <b>group_id:</b> (falta fazer)
+- <b>creat:</b> (falta fazer)
+- <b>addParticipants:</b> (falta fazer)
+- <b>removeParticipants:</b> (falta fazer)
+- <b>groupInviteCode:</b> (falta fazer)
+- <b>demoteParticipants:</b> (falta fazer)
+- <b>promoteParticipants:</b> (falta fazer)
+- <b>setWhoCanSendMessage:</b> (falta fazer)
+- <b>setWhoCanChangeSettings:</b> (falta fazer)
+- <b>leaveGroup:</b> (falta fazer)
