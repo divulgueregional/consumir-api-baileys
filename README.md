@@ -4,8 +4,6 @@
 
 Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Baileys que é comercializada nos grupos. Aqui não está disponível a API apenas a utilização dela.
 
-## ESTÁ EM FASE DE DESENVOLVIMENTO:
-Ainda não está pronta, fase em desenvolvimento apenas. Logo estará disponível para instalação.
 
 ## O QUE VOCÊ PODE UTILIZAR:
 <b>InstanceController</b>
