@@ -28,10 +28,10 @@ Ainda não está pronta, fase em desenvolvimento apenas. Logo estará disponíve
 - <b>enableMessage:</b> (falta fazer)
 
 <b>SendMessageController</b>
-- <b>text:</b> enviar mensagem de texto
-- <b>document:</b> (falta fazer)
-- <b>textToMany:</b> (falta fazer)
-- <b>mediaUrl:</b> (falta fazer)
+- <b>textToMany:</b> enviar mensagem de texto para mais de um número
+- <b>text:</b> enviar mensagem de texto para um número
+- <b>document:</b> enviar um arquivo
+- <b>mediaUrl:</b> permite que você envie um URL de mídia para um usuário.
 - <b>image:</b> (falta fazer)
 - <b>video:</b> (falta fazer)
 - <b>audio:</b> (falta fazer)
