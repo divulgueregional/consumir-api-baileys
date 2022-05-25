@@ -5,7 +5,6 @@ use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Message;
-use GuzzleHttp\Psr7\File;
 
 class Baileys{
     protected $instance;
@@ -21,6 +20,7 @@ class Baileys{
                 'Content-Type' => 'application/json',
             ],'debug' => true,
         ];
+        $this->config = $config;
     }
 
     #######################################################
@@ -193,6 +193,27 @@ class Baileys{
     #######################################################
     ############# SendMessageController ###################
     #######################################################
+    public function textToMany(array $filter, string $instance){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filter));
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/sendMessage/{$instance}/textToMany",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
     public function text(array $filter, string $instance){
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filter));
@@ -214,37 +235,14 @@ class Baileys{
         }
     }
 
-    public function document(string $instance, $file){
-        // $options = $this->optionsRequest;
-        // $options['headers']['Content-Type'] = 'multipart/form-data';
-        // $options['body'] = $postfields;
-        $tmp = tempnam( sys_get_temp_dir(), 'php' );
-        print_r($file);
+    public function mediaURL(array $filter, string $instance){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filter));
         try {
             $response = $this->client->request(
                 'POST',
-                "/rest/sendMessage/drsystema/document?id=555484384705",
-                [
-                    'multipart' => [
-                        'headers' => [
-                            'Accept' => '*/*',
-                            'Content-Type' => 'multipart/form-data',
-                        ],
-                        'body' => [
-                            'name' => 'nota',
-                            // 'name'     => 'myFile',
-
-                            // 'contents' => 'C:/aplicativos/projetos/drsystema/themes/drsystema/_sis/api/Baileys/doc/nota.pdf',
-                            // 'contents' => $file,
-                            'contents' => file_get_contents($file),
-                            // 'contents' => file_put_contents( $tmp, file_get_contents( $file ) ),
-                            'filename' => "nota.pdf",
-                            'type' =>' application/pdf',
-                        ],
-                    ],
-                    // 'verify' => false,
-                    'debug' => true,
-                ]
+                "/rest/sendMessage/{$instance}/mediaUrl",
+                $options
             );
 
             $statusCode = $response->getStatusCode();
@@ -253,6 +251,68 @@ class Baileys{
         } catch (ClientException $e) {
             return $this->parseResultClient($e);
         } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function document(string $instance, string $telefone, $cUrlFile){
+        $url = "{$this->config['http']}://{$this->config['dominio']}:{$this->config['porta']}/rest/sendMessage/{$instance}/document?id={$telefone}";
+        $headers = array("Content-Type:multipart/form-data");
+        $postfields = array("file" => $cUrlFile);
+
+        $ch = curl_init();
+        $options = array(
+            CURLOPT_URL => $url,
+            CURLOPT_HEADER => true,
+            CURLOPT_POST => 1,
+            CURLOPT_FAILONERROR => false,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_POSTFIELDS => $postfields,
+            CURLOPT_RETURNTRANSFER => true
+        ); // cURL options
+        curl_setopt_array($ch, $options);
+        curl_exec($ch);
+        $info = curl_getinfo($ch);
+        return $info;
+    }
+
+    //em teste, não funcionando
+    public function documento(string $instance, $file){
+        $contents = [
+            "file" => '/nota.pdf',
+            'type' =>' application/pdf',
+        ];
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/sendMessage/drsystema/document?id=555484384705",
+                [
+                    'multipart' => [
+                        // 'headers' => [
+                        //     'Accept' => '*/*',
+                        //     'Content-Type' => 'multipart/form-data',
+                        // ],
+                        
+                        'headers' => array('Accept' => '*/*', 'Content-Type' => 'multipart/form-data'),
+                        [
+                            'name' => 'files',
+                            'contents' => $contents,
+                            'filename' => 'nota.pdf',
+                        ],
+                    ],
+                    'verify' => false,
+                    'debug' => true,
+                ]
+            );
+            print_r($response);
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {print_r($e);
             $response = $e->getMessage();
             return ['error' => "Falha ao enviar o arquivo: {$response}"];
         }
