@@ -7,12 +7,18 @@ Lista os chats.
     require_once '../../../vendor/autoload.php';
     use Divulgueregional\ConsumirApiBaileys\Baileys;
 
-    $instance = ''; //nome da instância
+    $config = [
+        'http' => 'http',//http ou https
+        'dominio' => '',//seu ip ou dominio
+        'porta' => 8000, //porta de instalação do bailey
+        'instance' => '' //sua instância
+    ];
+
     try {
         $Baileys = new Baileys($config);
 
         echo "<pre>";
-        $obterChats = $Baileys->obterChats($instance);
+        $obterChats = $Baileys->obterChats();
         print_r($obterChats);
     } catch (\Exception $e) {
         echo $e->getMessage();
