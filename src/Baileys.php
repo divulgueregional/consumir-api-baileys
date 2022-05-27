@@ -18,7 +18,8 @@ class Baileys{
             'headers' => [
                 'Accept' => '*/*',
                 'Content-Type' => 'application/json',
-            ],'debug' => true,
+            ],
+            // 'debug' => true,
         ];
         $this->config = $config;
     }
@@ -67,12 +68,12 @@ class Baileys{
         }
     }
 
-    public function instance_key(string $instance){
+    public function instance_key(){
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
                 'GET',
-                "/rest/instance/{$instance}",
+                "/rest/instance/{$this->config['instance']}",
                 $options
             );
 
@@ -87,12 +88,12 @@ class Baileys{
         }
     }
 
-    public function obterChats(string $instance){
+    public function obterChats(){
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
                 'GET',
-                "/rest/instance/chats/{$instance}",
+                "/rest/instance/chats/{$this->config['instance']}",
                 $options
             );
 
@@ -107,12 +108,12 @@ class Baileys{
         }
     }
 
-    public function obterContacts(string $instance){
+    public function obterContacts(){
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
                 'GET',
-                "/rest/instance/contacts/{$instance}",
+                "/rest/instance/contacts/{$this->config['instance']}",
                 $options
             );
 
@@ -127,12 +128,12 @@ class Baileys{
         }
     }
 
-    public function obterMessages(string $instance, string $chat_id){
+    public function obterMessages(string $chat_id){
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
                 'GET',
-                "/rest/instance/messages/{$instance}?chat_id={$chat_id}",
+                "/rest/instance/messages/{$this->config['instance']}?chat_id={$chat_id}",
                 $options
             );
 
@@ -147,12 +148,12 @@ class Baileys{
         }
     }
 
-    public function isOnWhatsApp(string $instance, string $phone){
+    public function isOnWhatsApp(string $phone){
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
                 'GET',
-                "/rest/instance/isOnWhatsApp/{$instance}?jid=55{$phone}@s.whatsapp.net",
+                "/rest/instance/isOnWhatsApp/{$this->config['instance']}?jid=55{$phone}@s.whatsapp.net",
                 $options
             );
 
@@ -167,19 +168,19 @@ class Baileys{
         }
     }
 
-    public function qrcode(string $instance, array $config){
+    public function qrcode(){
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
                 'GET',
-                "/rest/instance/qrcode/{$instance}",
+                "/rest/instance/qrcode/{$this->config['instance']}",
                 $options
             );
 
             $statusCode = $response->getStatusCode();
             $urlQRCode = null;
             if($statusCode==200){
-                $urlQRCode = "{$config['http']}://{$config['dominio']}:{$config['porta']}/rest/instance/qrcode/{$instance}";
+                $urlQRCode = "{$this->config['http']}://{$this->config['dominio']}:{$this->config['porta']}/rest/instance/qrcode/{$this->config['instance']}";
             }
             return array('status' => $statusCode, 'urlQRCode' => $urlQRCode);
         } catch (ClientException $e) {
@@ -193,13 +194,13 @@ class Baileys{
     #######################################################
     ############# SendMessageController ###################
     #######################################################
-    public function textToMany(array $filter, string $instance){
+    public function textToMany(array $filter){
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filter));
         try {
             $response = $this->client->request(
                 'POST',
-                "/rest/sendMessage/{$instance}/textToMany",
+                "/rest/sendMessage/{$this->config['instance']}/textToMany",
                 $options
             );
 
@@ -214,13 +215,13 @@ class Baileys{
         }
     }
 
-    public function text(array $filter, string $instance){
+    public function text(array $filter){
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filter));
         try {
             $response = $this->client->request(
                 'POST',
-                "/rest/sendMessage/{$instance}/text",
+                "/rest/sendMessage/{$this->config['instance']}/text",
                 $options
             );
 
@@ -235,13 +236,13 @@ class Baileys{
         }
     }
 
-    public function mediaURL(array $filter, string $instance){
+    public function mediaURL(array $filter){
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filter));
         try {
             $response = $this->client->request(
                 'POST',
-                "/rest/sendMessage/{$instance}/mediaUrl",
+                "/rest/sendMessage/{$this->config['instance']}/mediaUrl",
                 $options
             );
 
@@ -255,68 +256,155 @@ class Baileys{
             return ['error' => "Falha ao enviar o texto: {$response}"];
         }
     }
-
-    public function document(string $instance, string $telefone, $cUrlFile){
-        $url = "{$this->config['http']}://{$this->config['dominio']}:{$this->config['porta']}/rest/sendMessage/{$instance}/document?id={$telefone}";
-        $headers = array("Content-Type:multipart/form-data");
-        $postfields = array("file" => $cUrlFile);
-
-        $ch = curl_init();
-        $options = array(
-            CURLOPT_URL => $url,
-            CURLOPT_HEADER => true,
-            CURLOPT_POST => 1,
-            CURLOPT_FAILONERROR => false,
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_HTTPHEADER => $headers,
-            CURLOPT_POSTFIELDS => $postfields,
-            CURLOPT_RETURNTRANSFER => true
-        ); // cURL options
-        curl_setopt_array($ch, $options);
-        curl_exec($ch);
-        $info = curl_getinfo($ch);
-        return $info;
-    }
-
-    //em teste, não funcionando
-    public function documento(string $instance, $file){
-        $contents = [
-            "file" => '/nota.pdf',
-            'type' =>' application/pdf',
-        ];
+    
+    public function image(array $info){
         try {
             $response = $this->client->request(
                 'POST',
-                "/rest/sendMessage/drsystema/document?id=555484384705",
+                "/rest/sendMessage/{$this->config['instance']}/image",
                 [
-                    'multipart' => [
-                        // 'headers' => [
-                        //     'Accept' => '*/*',
-                        //     'Content-Type' => 'multipart/form-data',
-                        // ],
-                        
-                        'headers' => array('Accept' => '*/*', 'Content-Type' => 'multipart/form-data'),
-                        [
-                            'name' => 'files',
-                            'contents' => $contents,
-                            'filename' => 'nota.pdf',
-                        ],
+                    "query" => [
+                        "id" => $info['id'],
+                        "caption" => $info['caption']
                     ],
-                    'verify' => false,
-                    'debug' => true,
-                ]
+                    "multipart" => [
+                        [
+                            "name" => 'file',
+                            'Content-type' => 'multipart/form-data, boundary=sendfile',
+                            "filename" => $info['caption'],
+                            'headers'  => ['Content-Type' => "image/png"],
+                            "contents" => file_get_contents($info['link'])
+                        ]
+                    ],
+                ],
             );
-            print_r($response);
             $statusCode = $response->getStatusCode();
             $result = json_decode($response->getBody()->getContents());
             return array('status' => $statusCode, 'response' => $result);
         } catch (ClientException $e) {
             return $this->parseResultClient($e);
-        } catch (\Exception $e) {print_r($e);
+        } catch (\Exception $e) {
             $response = $e->getMessage();
-            return ['error' => "Falha ao enviar o arquivo: {$response}"];
+            return ['error' => "Falha ao enviar o texto: {$response}"];
         }
     }
+
+    
+    public function video(array $info){
+
+    }
+
+    public function audio(array $info){
+
+    }
+
+    public function document(array $info){
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/sendMessage/{$this->config['instance']}/document",
+                [
+                    "query" => [
+                        "id" => $info['id'],
+                        "caption" => $info['caption']
+                    ],
+                    "multipart" => [
+                        [
+                            "name" => 'file',
+                            'Content-type' => 'multipart/form-data, boundary=sendfile',
+                            "filename" => $info['filename'],
+                            'headers'  => ['Content-Type' => 'application/pdf'],
+                            "contents" => file_get_contents($info['link'])
+                        ]
+                    ],
+                    // 'debug' => true,
+                ],
+            );
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function location(array $info){
+
+    }
+
+    public function button(array $filters){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filters));
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/sendMessage/{$this->config['instance']}/templateMessage",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function templateMessageWithMedia(array $info){
+
+    }
+
+    public function contactMessage(array $filters){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filters));
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/sendMessage/{$this->config['instance']}/contactMessage",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function listMessage(array $filters){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filters));
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/sendMessage/{$this->config['instance']}/listMessage",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    ##############################################
+    ######## FIM - SEND MESSAGEM CONTROLLER ######
+    ##############################################
 
     ##############################################
     ######## FERRAMENTAS #########################
