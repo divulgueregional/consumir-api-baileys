@@ -1,4 +1,4 @@
-#  ADMIN GROUPS - BAILEYS
+#  CREATE GROUP - BAILEYS
 
 ## Descrição
 Cria um grupo com pelo menos 1 participantes
