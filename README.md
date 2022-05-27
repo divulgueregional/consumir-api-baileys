@@ -30,14 +30,17 @@ Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Bailey
 - <b>text:</b> enviar mensagem de texto para um número
 - <b>document:</b> enviar um arquivo
 - <b>mediaUrl:</b> permite que você envie um URL de mídia para um usuário.
-- <b>image:</b> (falta fazer)
+- <b>image:</b> Envia uma imagem para um determinado número
 - <b>video:</b> (falta fazer)
 - <b>audio:</b> (falta fazer)
 - <b>location:</b> (falta fazer)
-- <b>templateMessage:</b> (falta fazer)
+- <b>templateMessage:</b> Permite que você crie 3 tipos botão.<br>
+        - replyButton: replicar a msg recebida<br>
+        - urlButton: título, uma msg e um botão que direciona para um link a ser aberto no navegador<br>
+        - callButton: manda uma msg e um botão que ao clicar abre para discar o número<br>
 - <b>templateMessageWithMedia:</b> (falta fazer)
-- <b>contactMessage:</b> (falta fazer)
-- <b>listMessage:</b> (falta fazer)
+- <b>contactMessage:</b> Envia um vacard, possibilitando adicionar um contato nos contatos<br>
+- <b>listMessage:</b> Você pode enviar uma lista de opções e o contato pode escolher uma opção e lhe retornar com a resposta.<br>
 
 <b>GroupController</b>
 - <b>list:</b> (falta fazer)

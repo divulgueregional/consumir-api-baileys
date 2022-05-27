@@ -11,19 +11,23 @@ Envia um arquivo para um determinado número.
         'http' => 'http',//http ou https
         'dominio' => '',//seu ip ou dominio
         'porta' => 8000, //porta de instalação do bailey
+        'instance' => '' //sua instância
     ];
 
-    $number = "55+DDD+Number";//ddd acima de 30 sem o 9
     $pathFile = './doc/meu_arquivo.pdf';//local do arquivo
-    $filename = "";// renomear o arquivo; vazio o arquivo vai com o nome original
-    $cUrlFile = new CURLFile($pathFile, 'application/pdf', $filename);
-
-    $instance = ''; //nome da instância criada ao ler o qrcode
+    $filename = "";// nome do arquivo
+    $number = "55+DDD+Number";//ddd acima de 30 sem o 9
+    $info = [
+        'id' => $number,
+        "caption" => $filename,
+        "filename" => $filename,
+        "link" => $pathFile,
+    ];
     try {
         $Baileys = new Baileys($config);
 
         echo "<pre>";
-        $document = $Baileys->document($filters, $instance);
+        $document = $Baileys->document($info);
         //print_r($document);
         if ($document['http_code'] == 200){
             echo "Arquivo carregado com sucesso";

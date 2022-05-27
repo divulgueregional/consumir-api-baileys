@@ -1,7 +1,7 @@
-# TEXT - BAILEYS
+# IMAGE - BAILEYS
 
 ## Descrição
-Envia um texto simples para um determinado número.
+Envia uma imagem para um determinado número.
 
 ```php
     require_once '../../../vendor/autoload.php';
@@ -14,18 +14,23 @@ Envia um texto simples para um determinado número.
         'instance' => '' //sua instância
     ];
 
+    $pathFile = './doc/minha_imagem.png';//local do arquivo
+    $filename = "nome_do_arquivo";// nome do arquivo
     $number = "55+DDD+Number";//ddd acima de 30 sem o 9
-    $text = "oi";
-    $filters["messageData"] = [
-        "to" => "{$number}@s.whatsapp.net",
-        "text" => "{$text}"
+    $info = [
+        'id' => $number,
+        "caption" => $filename,
+        "link" => $pathFile,
     ];
     try {
         $Baileys = new Baileys($config);
 
         echo "<pre>";
-        $respText = $Baileys->text($filters);
-        print_r($respText);
+        $image = $Baileys->image($info);
+        //print_r($image);
+        if ($image['http_code'] == 200){
+            echo "Imagem carregado com sucesso";
+        }
     } catch (\Exception $e) {
         echo $e->getMessage();
     }

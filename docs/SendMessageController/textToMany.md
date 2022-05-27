@@ -11,6 +11,7 @@ Envia um texto simples para mais de um número.
         'http' => 'http',//http ou https
         'dominio' => '',//seu ip ou dominio
         'porta' => 8000, //porta de instalação do bailey
+        'instance' => '' //sua instância
     ];
 
     $text = "oi";
@@ -21,12 +22,11 @@ Envia um texto simples para mais de um número.
         ],
         "text"=> $text
     ];
-    $instance = ''; //nome da instância criada ao ler o qrcode
     try {
         $Baileys = new Baileys($config);
 
         echo "<pre>";
-        $textToMany = $Baileys->textToMany($filters, $instance);
+        $textToMany = $Baileys->textToMany($filters);
         //print_r($textToMany);
         if($textToMany['status']==200){
             echo "mensagens enviadas";
