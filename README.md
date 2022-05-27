@@ -34,7 +34,7 @@ Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Bailey
 - <b>video:</b> (falta fazer)
 - <b>audio:</b> (falta fazer)
 - <b>location:</b> (falta fazer)
-- <b>templateMessage:</b> Permite que você crie 3 tipos botão.<br>
+- <b>templateMessage:</b> Permite que você crie 3 tipos de botões.<br>
         - replyButton: replicar a msg recebida<br>
         - urlButton: título, uma msg e um botão que direciona para um link a ser aberto no navegador<br>
         - callButton: manda uma msg e um botão que ao clicar abre para discar o número<br>
@@ -43,11 +43,11 @@ Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Bailey
 - <b>listMessage:</b> Você pode enviar uma lista de opções e o contato pode escolher uma opção e lhe retornar com a resposta.<br>
 
 <b>GroupController</b>
-- <b>list:</b> (falta fazer)
-- <b>adminGroups:</b> (falta fazer)
-- <b>adminGroupsWithParticipants:</b> (falta fazer)
+- <b>list:</b> Lista todos os grupos
+- <b>adminGroups:</b> Lista todos os grupos em que você está e admin
+- <b>adminGroupsWithParticipants:</b> Lista todos os grupos em que você está e admin junto com a matriz de participantes
 - <b>group_id:</b> (falta fazer)
-- <b>creat:</b> (falta fazer)
+- <b>creat:</b> Cria um grupo
 - <b>addParticipants:</b> (falta fazer)
 - <b>removeParticipants:</b> (falta fazer)
 - <b>groupInviteCode:</b> (falta fazer)
