@@ -407,6 +407,281 @@ class Baileys{
     ##############################################
 
     ##############################################
+    ############# GroupController ################
+    ##############################################
+    public function listGroup(){
+        $options = $this->optionsRequest;
+        try {
+            $response = $this->client->request(
+                'GET',
+                "/rest/group/list/{$this->config['instance']}",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function adminGroups(){
+        $options = $this->optionsRequest;
+        try {
+            $response = $this->client->request(
+                'GET',
+                "/rest/group/{$this->config['instance']}/adminGroups",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function adminGroupsWithParticipants(){
+        $options = $this->optionsRequest;
+        try {
+            $response = $this->client->request(
+                'GET',
+                "/rest/group/{$this->config['instance']}/adminGroupsWithParticipants",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function group_id(string $group_id){
+        $options = $this->optionsRequest;
+        try {
+            $response = $this->client->request(
+                'GET',
+                "/rest/group/{$this->config['instance']}/group/{$group_id}",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function createGroup($filters){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filters));
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/group/{$this->config['instance']}/create",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function addParticipants($filters){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filters));
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/group/{$this->config['instance']}/addParticipants",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function removeParticipants($filters){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode($filters);
+        try {
+            $response = $this->client->request(
+                'DELETE',
+                "/rest/group/{$this->config['instance']}/removeParticipants",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function groupInviteCode($filters){
+        $options = $this->optionsRequest;
+        $options['query'] = $filters;
+        try {
+            $response = $this->client->request(
+                'GET',
+                "/rest/group/{$this->config['instance']}/groupInviteCode",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function promoteParticipants($filters){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filters));
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/group/{$this->config['instance']}/promoteParticipants",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function demoteParticipants($filters){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filters));
+        try {
+            $response = $this->client->request(
+                'DELETE',
+                "/rest/group/{$this->config['instance']}/demoteParticipants",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function setWhoCanSendMessage($filters){
+        $options = $this->optionsRequest;
+        $options['query'] = $filters;
+        try {
+            $response = $this->client->request(
+                'PUT',
+                "/rest/group/{$this->config['instance']}/setWhoCanSendMessage",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function setWhoCanChangeSettings($filters){
+        $options = $this->optionsRequest;
+        $options['query'] = $filters;
+        try {
+            $response = $this->client->request(
+                'PUT',
+                "/rest/group/{$this->config['instance']}/setWhoCanChangeSettings",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
+    public function leaveGroup($filters){
+        $options = $this->optionsRequest;
+        $options['query'] = $filters;
+        try {
+            $response = $this->client->request(
+                'PUT',
+                "/rest/group/{$this->config['instance']}/leaveGroup",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+    ##############################################
+    ############# FIM - GroupController ##########
+    ##############################################
+
+    ##############################################
     ######## FERRAMENTAS #########################
     ##############################################
     private function parseResultClient($result)
