@@ -1,12 +1,14 @@
-#  isOnWhatsApp - BAILEYS
+#  GROUP_ID - BAILEYS
 
 ## Descrição
-Verifica se o número está cadastrado no whatsapp.
+Lista todos os participantes de um grupo.<br>
+Observe que o group_id deve conter @g.us no final, por exemplo: 556195526247-1634509787@g.us<br>
+Use o método listGroup para pegar o id de cada grupo
 
 ```php
     require_once '../../../vendor/autoload.php';
     use Divulgueregional\ConsumirApiBaileys\Baileys;
-
+    
     $config = [
         'http' => 'http',//http ou https
         'dominio' => '',//seu ip ou dominio
@@ -14,13 +16,13 @@ Verifica se o número está cadastrado no whatsapp.
         'instance' => '' //sua instância
     ];
     
-    $phone = "55+DDD+Number";//ddd acima de 30 sem o 9
     try {
         $Baileys = new Baileys($config);
 
+        $group_id = '';
         echo "<pre>";
-        $isOnWhatsApp = $Baileys->isOnWhatsApp($phone);
-        print_r($isOnWhatsApp);
+        $group_id_resp = $Baileys->group_id($group_id);
+        print_r($group_id_resp);
     } catch (\Exception $e) {
         echo $e->getMessage();
     }

@@ -43,16 +43,16 @@ Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Bailey
 - <b>listMessage:</b> Você pode enviar uma lista de opções e o contato pode escolher uma opção e lhe retornar com a resposta.<br>
 
 <b>GroupController</b>
-- <b>list:</b> Lista todos os grupos
+- <b>listGroup:</b> Lista todos os grupos
 - <b>adminGroups:</b> Lista todos os grupos em que você está e admin
 - <b>adminGroupsWithParticipants:</b> Lista todos os grupos em que você está e admin junto com a matriz de participantes
-- <b>group_id:</b> (falta fazer)
+- <b>group_id:</b> Lista todos os participantes de um grupo.<br>
 - <b>creat:</b> Cria um grupo
-- <b>addParticipants:</b> (falta fazer)
-- <b>removeParticipants:</b> (falta fazer)
-- <b>groupInviteCode:</b> (falta fazer)
-- <b>demoteParticipants:</b> (falta fazer)
-- <b>promoteParticipants:</b> (falta fazer)
-- <b>setWhoCanSendMessage:</b> (falta fazer)
-- <b>setWhoCanChangeSettings:</b> (falta fazer)
-- <b>leaveGroup:</b> (falta fazer)
+- <b>addParticipants:</b> Adicionar participante(s) em um grupo.
+- <b>removeParticipants:</b> Remove participantes de um grupo
+- <b>groupInviteCode:</b> Pegar o código de convite do grupo
+- <b>demoteParticipants:</b> Participante retirado como administrador
+- <b>promoteParticipants:</b> Coloca  participante(s) como administrador de um grupo.
+- <b>setWhoCanSendMessage:</b> Define quem envia mensagem no grupo
+- <b>setWhoCanChangeSettings:</b> Definir quem pode alterar a configuração do grupo
+- <b>leaveGroup:</b> Deixar o grupo
