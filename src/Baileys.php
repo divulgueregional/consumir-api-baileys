@@ -682,6 +682,74 @@ class Baileys{
     ##############################################
 
     ##############################################
+    ######## WEBHOOK #############################
+    ##############################################
+    public function getWebhook(){
+        $options = $this->optionsRequest;
+        try {
+            $response = $this->client->request(
+                'GET',
+                "/rest/webhook/{$this->config['instance']}",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+    
+    public function updateUrl(array $filters){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filters));
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/webhook/{$this->config['instance']}/updateUrl",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+    
+    public function enableMessage(array $filters){
+        $options = $this->optionsRequest;
+        $options['body'] = json_encode(($filters));
+        try {
+            $response = $this->client->request(
+                'POST',
+                "/rest/webhook/{$this->config['instance']}/enableMessage",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+    ##############################################
+    ######## FIM - WEBHOOK #######################
+    ##############################################
+
+    ##############################################
     ######## FERRAMENTAS #########################
     ##############################################
     private function parseResultClient($result)
