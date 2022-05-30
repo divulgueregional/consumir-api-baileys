@@ -1,7 +1,7 @@
 #  UPDATE URL - BAILEYS
 
 ## Descrição
-habilitar um webhook.
+habilitar ou desabilitar um webhook.
 
 ```php
     require_once '../../../vendor/autoload.php';
@@ -20,7 +20,7 @@ habilitar um webhook.
         $filters["data"] = [
             "sendWebhook" => true // true or false
         ];
-        
+
         echo "<pre>";
         $enableMessage = $Baileys->enableMessage($filters);
         print_r($enableMessage);

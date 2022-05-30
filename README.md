@@ -21,9 +21,9 @@ Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Bailey
 - <b>downloadMediaMessage:</b> (falta fazer)
 
 <b>WebhookController</b>
-- <b>webhook:</b> (falta fazer)
-- <b>updateUrl:</b> (falta fazer)
-- <b>enableMessage:</b> (falta fazer)
+- <b>getWebhook:</b> Busca o whebhook cadastrado.
+- <b>updateUrl:</b> Cria um webhook
+- <b>enableMessage:</b> habilitar ou desabilitar um webhook
 
 <b>SendMessageController</b>
 - <b>textToMany:</b> enviar mensagem de texto para mais de um número
