@@ -4,6 +4,20 @@
 
 Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Baileys que é comercializada nos grupos. Aqui não está disponível a API apenas a utilização dela.
 
+## Como usar:
+<b>Instalação: </b>
+Para utilizar a biblioteca através do composer:
+```php
+composer require divulgueregional/api-inter-v2
+```
+## Atualizar:
+```php
+composer update
+```
+<b>Ou pela última tag: </b>
+```php
+composer update divulgueregional/consumir-api-baileys 1.0.2
+```
 
 ## O QUE VOCÊ PODE UTILIZAR:
 <b>InstanceController</b>
