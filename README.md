@@ -1,4 +1,4 @@
-# CONSUMIR API BAILEYS
+# CONSUMIR API BAILEYS PHP
 
 ## Introdução
 
@@ -70,3 +70,15 @@ composer update divulgueregional/consumir-api-baileys 1.0.2
 - <b>setWhoCanSendMessage:</b> Define quem envia mensagem no grupo
 - <b>setWhoCanChangeSettings:</b> Definir quem pode alterar a configuração do grupo
 - <b>leaveGroup:</b> Deixar o grupo
+
+
+## Autor:
+Roseno Matos (developer) rosenomatos@gmail.com
+
+## Licença:
+CONSUMIR API BAILEYS PHP é licenciado sob a Licença MIT (MIT). Você pode usar, copiar, modificar, integrar, publicar, distribuir e/ou vender cópias dos produtos finais, mas deve sempre declarar que Roseno Matos (rosenomatos@gmail.com) é o autor original destes códigos e atribuir um link para https://github.com/divulgueregional/consumir-api-baileys
+<!-- ## Comunidade: -->
+## Facilitou sua vida?
+Se o projeto o ajudou em uma tarefa excencial a sua aplicação de uma forma simples e se gostaria de contribuir com uma pequena doação ao autor, faça pelo PIX abaixo<br><hr>
+
+Chave Pix E-MAIL: roseno@divulgueregional.com.br
