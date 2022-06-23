@@ -298,7 +298,7 @@ class Baileys{
 
     }
 
-    public function document(array $info){
+    public function document(array $info, string $extensao = 'pdf'){
         try {
             $response = $this->client->request(
                 'POST',
@@ -313,7 +313,7 @@ class Baileys{
                             "name" => 'file',
                             'Content-type' => 'multipart/form-data, boundary=sendfile',
                             "filename" => $info['filename'],
-                            'headers'  => ['Content-Type' => 'application/pdf'],
+                            'headers'  => ['Content-Type' => "application/{$extensao}"],
                             "contents" => file_get_contents($info['link'])
                         ]
                     ],

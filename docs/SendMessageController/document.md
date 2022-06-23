@@ -36,3 +36,11 @@ Envia um arquivo para um determinado número.
         echo $e->getMessage();
     }
 ```
+## Extensão dos arquivos
+A Extensão padrão está em PDF.<br>
+Para mudar, precisa especificar qual é a extensão do arquivo.
+
+```php
+    //Mudar a extensão do arquivo
+    $document = $Baileys->document($info, 'xml');
+```
