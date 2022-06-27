@@ -16,7 +16,7 @@ composer update
 ```
 <b>Ou pela última tag: </b>
 ```php
-composer update divulgueregional/consumir-api-baileys 1.0.2
+composer update divulgueregional/consumir-api-baileys 1.0.3
 ```
 
 ## O QUE VOCÊ PODE UTILIZAR:
