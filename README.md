@@ -8,7 +8,7 @@ Essa biblioteca tem o objetivo de usar os recursos disponíveis da API do Bailey
 <b>Instalação: </b>
 Para utilizar a biblioteca através do composer:
 ```php
-composer require divulgueregional/api-inter-v2
+composer require divulgueregional/consumir-api-baileys
 ```
 ## Atualizar:
 ```php
