@@ -61,7 +61,7 @@ Permite que você crie 3 tipos botão.<br>
         $Baileys = new Baileys($config);
 
         echo "<pre>";
-        $replyButton = $Baileys->replyButton($filters);
+        $replyButton = $Baileys->button($filters);
         // print_r($replyButton);
         if($replyButton['status']==200){
             echo "replyButton enviada";
