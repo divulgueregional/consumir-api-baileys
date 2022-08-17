@@ -30,3 +30,18 @@ Envia um texto simples para um determinado número.
         echo $e->getMessage();
     }
 ```
+
+## Formatações
+Formas para melhorar o envio da mensagen.
+
+```php
+    //novo parágrafo
+    $quebraLinha = '
+';// cria uma nova linha
+
+$quebraLinha = chr(10);// chr(10) equivale a nova linha
+
+//negrito coloca *
+$negrito = "*Aqui negrito* e aqui não";
+
+```
