@@ -16,7 +16,7 @@ composer update
 ```
 <b>Ou pela última tag: </b>
 ```php
-composer update divulgueregional/consumir-api-baileys 1.0.3
+composer update divulgueregional/consumir-api-baileys 1.0.4
 ```
 
 ## O QUE VOCÊ PODE UTILIZAR:
@@ -29,9 +29,10 @@ composer update divulgueregional/consumir-api-baileys 1.0.3
 - <b>obterContacts:</b> lista de contatos
 - <b>isOnWhatsApp</b>: verifica se o número está cadastrado no whatsapp
 - <b>qrcode:</b> gera url para ler o qrcode
-- <b>qrcodeBase64:</b> (falta fazer)
+- <b>qrcodeBase64:</b> gerar qrcode na tela
 - <b>logout:</b> (falta fazer)
-- <b>delete:</b> (falta fazer)
+- <b>reset:</b>redefinir uma instância ou restartar ela
+- <b>delete:</b>excluir uma instância
 - <b>downloadMediaMessage:</b> (falta fazer)
 
 <b>WebhookController</b>

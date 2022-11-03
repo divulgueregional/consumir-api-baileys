@@ -191,6 +191,66 @@ class Baileys{
         }
     }
 
+    public function reset(){
+        $options = $this->optionsRequest;
+        try {
+            $response = $this->client->request(
+                'DELETE',
+                "/rest/instance/{$this->config['instance']}/reset",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha  ao redefinir a instancia {$response}"];
+        }
+    }
+
+    public function delete(String $key){
+        $options = $this->optionsRequest;
+        try {
+            $response = $this->client->request(
+                'DELETE',
+                "/rest/instance/{$key}/delete",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha  ao redefinir a instancia {$response}"];
+        }
+    }
+
+    public function qrcode_base64(){
+        $options = $this->optionsRequest;
+        try {
+            $response = $this->client->request(
+                'GET',
+                "/rest/instance/qrcode_base64/{$this->config['instance']}",
+                $options
+            );
+
+            $statusCode = $response->getStatusCode();
+            $result = json_decode($response->getBody()->getContents());
+            return array('status' => $statusCode, 'response' => $result);
+        } catch (ClientException $e) {
+            return $this->parseResultClient($e);
+        } catch (\Exception $e) {
+            $response = $e->getMessage();
+            return ['error' => "Falha ao enviar o texto: {$response}"];
+        }
+    }
+
     #######################################################
     ############# SendMessageController ###################
     #######################################################
