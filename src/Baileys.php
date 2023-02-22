@@ -9,6 +9,9 @@ use GuzzleHttp\Psr7\Message;
 class Baileys{
     protected $instance;
     private $client;
+    private $optionsRequest;
+    private $config;
+
     function __construct(array $config)
     {
         $this->client = new Client([
