@@ -44,4 +44,13 @@ $quebraLinha = chr(10);// chr(10) equivale a nova linha
 //negrito coloca *
 $negrito = "*Aqui negrito* e aqui não";
 
+//Itálico coloca _texto_
+$italico = "_Aqui itálico_ e aqui não";
+
+//Taxado coloca ~texto~
+$taxado = "~Aqui taxado~ e aqui não";
+
+//Monoespaçado coloca '''texto'''
+$monoespacado = "'''Aqui monoespacado''' e aqui não";
+
 ```
