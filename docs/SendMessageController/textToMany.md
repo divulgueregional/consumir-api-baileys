@@ -1,6 +1,7 @@
 # TEXT TO MANY - BAILEYS
 
 ## Descrição
+
 Envia um texto simples para mais de um número.
 
 ```php
@@ -17,8 +18,8 @@ Envia um texto simples para mais de um número.
     $text = "oi";
     $filters["messageData"] = [
         "to" => [
-          "555432170699@s.whatsapp.net",//ddd acima de 30 sem o 9
-          "555484499524@s.whatsapp.net"
+          "555488888888@s.whatsapp.net",//ddd acima de 30 sem o 9
+          "555499999999@s.whatsapp.net"
         ],
         "text"=> $text
     ];
