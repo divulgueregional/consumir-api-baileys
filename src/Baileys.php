@@ -1,4 +1,5 @@
 <?php
+
 namespace Divulgueregional\consumirapibaileys;
 
 use Exception;
@@ -6,7 +7,8 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Message;
 
-class Baileys{
+class Baileys
+{
     protected $instance;
     private $client;
     private $optionsRequest;
@@ -30,7 +32,8 @@ class Baileys{
     #######################################################
     ############# InstanceController ###################
     #######################################################
-    public function init(array $filters){
+    public function init(array $filters)
+    {
         $options = $this->optionsRequest;
         $options['query'] = $filters;
         try {
@@ -51,7 +54,9 @@ class Baileys{
         }
     }
 
-    public function list(){
+    //listar todas as instancias
+    public function list()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -71,7 +76,8 @@ class Baileys{
         }
     }
 
-    public function instance_key(){
+    public function instance_key()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -91,7 +97,8 @@ class Baileys{
         }
     }
 
-    public function obterChats(){
+    public function obterChats()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -111,7 +118,8 @@ class Baileys{
         }
     }
 
-    public function obterContacts(){
+    public function obterContacts()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -131,7 +139,8 @@ class Baileys{
         }
     }
 
-    public function obterMessages(string $chat_id){
+    public function obterMessages(string $chat_id)
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -151,7 +160,8 @@ class Baileys{
         }
     }
 
-    public function isOnWhatsApp(string $phone){
+    public function isOnWhatsApp(string $phone)
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -171,7 +181,8 @@ class Baileys{
         }
     }
 
-    public function qrcode(){
+    public function qrcode()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -182,7 +193,7 @@ class Baileys{
 
             $statusCode = $response->getStatusCode();
             $urlQRCode = null;
-            if($statusCode==200){
+            if ($statusCode == 200) {
                 $urlQRCode = "{$this->config['http']}://{$this->config['dominio']}:{$this->config['porta']}/rest/instance/qrcode/{$this->config['instance']}";
             }
             return array('status' => $statusCode, 'urlQRCode' => $urlQRCode);
@@ -194,7 +205,8 @@ class Baileys{
         }
     }
 
-    public function reset(){
+    public function reset()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -214,7 +226,8 @@ class Baileys{
         }
     }
 
-    public function delete(String $key){
+    public function delete(String $key)
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -234,7 +247,8 @@ class Baileys{
         }
     }
 
-    public function qrcode_base64(){
+    public function qrcode_base64()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -257,7 +271,8 @@ class Baileys{
     #######################################################
     ############# SendMessageController ###################
     #######################################################
-    public function textToMany(array $filter){
+    public function textToMany(array $filter)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filter));
         try {
@@ -278,7 +293,8 @@ class Baileys{
         }
     }
 
-    public function text(array $filter){
+    public function text(array $filter)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filter));
         try {
@@ -299,7 +315,8 @@ class Baileys{
         }
     }
 
-    public function mediaURL(array $filter){
+    public function mediaURL(array $filter)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filter));
         try {
@@ -319,8 +336,9 @@ class Baileys{
             return ['error' => "Falha ao enviar o texto: {$response}"];
         }
     }
-    
-    public function image(array $info){
+
+    public function image(array $info)
+    {
         try {
             $response = $this->client->request(
                 'POST',
@@ -352,16 +370,17 @@ class Baileys{
         }
     }
 
-    
-    public function video(array $info){
 
+    public function video(array $info)
+    {
     }
 
-    public function audio(array $info){
-
+    public function audio(array $info)
+    {
     }
 
-    public function document(array $info, string $extensao = 'pdf'){
+    public function document(array $info, string $extensao = 'pdf')
+    {
         try {
             $response = $this->client->request(
                 'POST',
@@ -394,11 +413,12 @@ class Baileys{
         }
     }
 
-    public function location(array $info){
-
+    public function location(array $info)
+    {
     }
 
-    public function button(array $filters){
+    public function button(array $filters)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filters));
         try {
@@ -419,11 +439,12 @@ class Baileys{
         }
     }
 
-    public function templateMessageWithMedia(array $info){
-
+    public function templateMessageWithMedia(array $info)
+    {
     }
 
-    public function contactMessage(array $filters){
+    public function contactMessage(array $filters)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filters));
         try {
@@ -444,7 +465,8 @@ class Baileys{
         }
     }
 
-    public function listMessage(array $filters){
+    public function listMessage(array $filters)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filters));
         try {
@@ -472,7 +494,8 @@ class Baileys{
     ##############################################
     ############# GroupController ################
     ##############################################
-    public function listGroup(){
+    public function listGroup()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -492,7 +515,8 @@ class Baileys{
         }
     }
 
-    public function adminGroups(){
+    public function adminGroups()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -512,7 +536,8 @@ class Baileys{
         }
     }
 
-    public function adminGroupsWithParticipants(){
+    public function adminGroupsWithParticipants()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -532,7 +557,8 @@ class Baileys{
         }
     }
 
-    public function group_id(string $group_id){
+    public function group_id(string $group_id)
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -552,7 +578,8 @@ class Baileys{
         }
     }
 
-    public function createGroup($filters){
+    public function createGroup($filters)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filters));
         try {
@@ -573,7 +600,8 @@ class Baileys{
         }
     }
 
-    public function addParticipants($filters){
+    public function addParticipants($filters)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filters));
         try {
@@ -594,7 +622,8 @@ class Baileys{
         }
     }
 
-    public function removeParticipants($filters){
+    public function removeParticipants($filters)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode($filters);
         try {
@@ -615,7 +644,8 @@ class Baileys{
         }
     }
 
-    public function groupInviteCode($filters){
+    public function groupInviteCode($filters)
+    {
         $options = $this->optionsRequest;
         $options['query'] = $filters;
         try {
@@ -636,7 +666,8 @@ class Baileys{
         }
     }
 
-    public function promoteParticipants($filters){
+    public function promoteParticipants($filters)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filters));
         try {
@@ -657,7 +688,8 @@ class Baileys{
         }
     }
 
-    public function demoteParticipants($filters){
+    public function demoteParticipants($filters)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filters));
         try {
@@ -678,7 +710,8 @@ class Baileys{
         }
     }
 
-    public function setWhoCanSendMessage($filters){
+    public function setWhoCanSendMessage($filters)
+    {
         $options = $this->optionsRequest;
         $options['query'] = $filters;
         try {
@@ -699,7 +732,8 @@ class Baileys{
         }
     }
 
-    public function setWhoCanChangeSettings($filters){
+    public function setWhoCanChangeSettings($filters)
+    {
         $options = $this->optionsRequest;
         $options['query'] = $filters;
         try {
@@ -720,7 +754,8 @@ class Baileys{
         }
     }
 
-    public function leaveGroup($filters){
+    public function leaveGroup($filters)
+    {
         $options = $this->optionsRequest;
         $options['query'] = $filters;
         try {
@@ -747,7 +782,8 @@ class Baileys{
     ##############################################
     ######## WEBHOOK #############################
     ##############################################
-    public function getWebhook(){
+    public function getWebhook()
+    {
         $options = $this->optionsRequest;
         try {
             $response = $this->client->request(
@@ -766,8 +802,9 @@ class Baileys{
             return ['error' => "Falha ao enviar o texto: {$response}"];
         }
     }
-    
-    public function updateUrl(array $filters){
+
+    public function updateUrl(array $filters)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filters));
         try {
@@ -787,8 +824,9 @@ class Baileys{
             return ['error' => "Falha ao enviar o texto: {$response}"];
         }
     }
-    
-    public function enableMessage(array $filters){
+
+    public function enableMessage(array $filters)
+    {
         $options = $this->optionsRequest;
         $options['body'] = json_encode(($filters));
         try {
