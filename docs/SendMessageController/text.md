@@ -34,7 +34,7 @@ Envia um texto simples para um determinado número.
 
 ## Formatações
 
-Referência: <a href="https://faq.whatsapp.com/539178204879377/?helpref=uf_share" target="_blank"> https://faq.whatsapp.com/539178204879377/?helpref=uf_share</a>
+Referência: <a href="https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher" target="_blank"> https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher</a>
 
 Formas para melhorar o envio da mensagen.
 
