@@ -55,8 +55,6 @@ $taxado = "~Aqui taxado~ e aqui não";
 //Monoespaçado coloca '''texto'''
 $monoespacado = "'''Aqui monoespacado''' e aqui não";
 
-referência: https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher
-
 ```
 
-<a href="https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher" target="_blank">referência: https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher</a>
+Referência: <a href="https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher" target="_blank"> https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher</a>
