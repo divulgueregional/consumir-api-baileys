@@ -34,6 +34,8 @@ Envia um texto simples para um determinado número.
 
 ## Formatações
 
+Referência: <a href="https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher" target="_blank"> https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher</a>
+
 Formas para melhorar o envio da mensagen.
 
 ```php
@@ -56,5 +58,3 @@ $taxado = "~Aqui taxado~ e aqui não";
 $monoespacado = "'''Aqui monoespacado''' e aqui não";
 
 ```
-
-Referência: <a href="https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher" target="_blank"> https://faq.whatsapp.com/539178204879377?cms_platform=android&helpref=platform_switcher</a>
