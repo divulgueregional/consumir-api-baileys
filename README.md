@@ -80,6 +80,11 @@ composer update divulgueregional/consumir-api-baileys 1.0.5
 - <b>setWhoCanChangeSettings:</b> Definir quem pode alterar a configuração do grupo
 - <b>leaveGroup:</b> Deixar o grupo
 
+## Comprar chips/numeros:
+
+https://www.numerosonline.com.br/plano/nacional <br>
+https://brdid.com.br/
+
 ## Autor:
 
 Roseno Matos (developer) rosenomatos@gmail.com
