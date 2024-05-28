@@ -1,14 +1,17 @@
 # WEBHOOK
 
 ## Introdução
+
 Receber as mensagens enviadas para uma intância.
 
 ## Processo
+
 1- getWebHook: consulta a situação do webhook de uma intância.
 2- updateURL: criar ou deletar um webhook.
 3- enableMessage: true para receber as msg e false para não receber
 
 ## Arquivo php
+
 Receber as mensagens
 
 ```php
@@ -23,6 +26,6 @@ print_r($retorno);
 $aleatorio = rand(1, 500);
 $dataHora = date('Y-m-d H:s:i');//{$aleatorio}-
 $fp = fopen("webhook-{$dataHora}.log", "a");
-fwrite($fp, $Post_Recebe);
+fwrite($fp, $response);
 fclose($fp);
 ```
