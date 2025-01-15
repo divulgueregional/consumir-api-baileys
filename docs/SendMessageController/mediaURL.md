@@ -43,7 +43,8 @@ Permite que você envie um URL de mídia para um usuário.<br>
     }
 ```
 
-Para mandar uma imagem png
+Para mandar uma imagem png<br>
+Para um jpg usar jpeg
 
 ```php
     require_once '../../../vendor/autoload.php';
